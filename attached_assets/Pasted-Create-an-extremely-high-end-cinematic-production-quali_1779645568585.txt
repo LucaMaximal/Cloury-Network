@@ -1,0 +1,751 @@
+Create an extremely high-end, cinematic, production-quality Minecraft network website for a premium server brand called “Cloury”.
+
+The website must NOT feel like a generic Minecraft template.
+It should feel like a real modern gaming platform comparable to Riot Games, Apple, Arc Browser, Linear, modern AAA game launchers, and futuristic SaaS platforms.
+
+The website should immediately feel:
+
+* premium
+* futuristic
+* immersive
+* smooth
+* modern
+* technical
+* scalable
+* alive
+* professional
+
+This is NOT just a Minecraft server website.
+This is a complete gaming platform and ecosystem.
+
+==================================================
+TECH STACK
+==========
+
+Use:
+
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* Supabase
+* Modern responsive architecture
+
+Use:
+
+* reusable components
+* scalable architecture
+* clean folder structure
+* modern state management
+* proper API structure
+* responsive layouts
+* optimized animations
+* production-ready code
+
+==================================================
+BRAND IDENTITY
+==============
+
+Brand Name:
+Cloury
+
+Brand Personality:
+
+* futuristic
+* mysterious
+* premium
+* cloud-based
+* elegant
+* technical
+* dark luxury
+* smooth ecosystem
+* modern infrastructure
+
+Cloury is a large modular Minecraft network with:
+
+* own infrastructure
+* own framework
+* own APIs
+* own cloud systems
+* own backend
+* synchronized cross-server systems
+* modular plugins
+* advanced profile systems
+* scalable architecture
+
+The network is:
+
+* private
+* not open source
+* professionally structured
+* long-term oriented
+* built like a real platform
+
+The website must communicate:
+“This is not just a Minecraft server.
+This is an entire gaming platform.”
+
+==================================================
+VISUAL STYLE
+============
+
+The design is EXTREMELY IMPORTANT.
+
+Create a cinematic dark interface with:
+
+* deep blacks
+* glassmorphism
+* liquid blur
+* transparent UI
+* layered depth
+* atmospheric lighting
+* smooth gradients
+* glowing edges
+* soft reflections
+* premium shadows
+* shader-like glow effects
+
+Style inspiration:
+
+* Apple Vision Pro UI
+* Arc Browser
+* Riot Games
+* modern gaming launchers
+* futuristic cloud dashboards
+* Apple-like smoothness
+
+Primary colors:
+
+* Cyan Glow: #8AFCFD
+* Purple accents
+* Soft white typography
+* Dark graphite backgrounds
+
+Avoid:
+
+* generic Minecraft website styles
+* childish gaming aesthetics
+* block textures
+* grass block themes
+* oversaturated colors
+* flat layouts
+* generic Tailwind cards
+* cheap neon effects
+
+The UI should feel:
+
+* spacious
+* cinematic
+* immersive
+* alive
+* reactive
+* premium
+* smooth
+
+==================================================
+REFERENCE IMAGES
+================
+
+Use the provided reference images as cinematic visual inspiration and section backgrounds.
+
+IMAGE USAGE:
+
+* IMG_4977.png → Main Hero Section background
+* IMG_4954.png → Features / Network section
+* IMG_4945.png → Dashboard / Team section
+* IMG_4955.png → Showcase / Footer atmosphere
+
+The website should visually match the atmosphere of the reference images:
+
+* futuristic
+* smooth
+* premium
+* dark
+* glowing
+* cloud-like
+* immersive
+
+Do NOT simply place the images normally.
+
+Instead:
+
+* integrate them cinematically
+* use blur overlays
+* use gradient masking
+* use atmospheric lighting
+* use glass layers
+* add depth effects
+* add animated particles
+* add parallax movement
+* add shader-like glow effects
+
+The images should feel like part of a futuristic gaming platform UI.
+
+==================================================
+CINEMATIC EXPERIENCE
+====================
+
+The website experience must feel cinematic and immersive.
+
+When users open the homepage they should immediately feel:
+
+* “This is a massive premium gaming network”
+* “This feels expensive”
+* “This feels alive”
+
+Focus heavily on:
+
+* motion design
+* atmosphere
+* lighting
+* depth
+* smoothness
+* transitions
+* premium UI behavior
+
+Add:
+
+* mouse reactive glow effects
+* subtle 3D hover movement
+* animated lighting
+* floating ambient particles
+* animated gradient borders
+* layered blur backgrounds
+* glass reflections
+* moving gradients
+* cinematic scroll transitions
+* animated background movement
+* premium loading animations
+
+Animations must be:
+
+* smooth
+* cinematic
+* subtle
+* responsive
+* premium
+* physics-based
+
+Use Framer Motion heavily.
+
+Avoid:
+
+* static sections
+* boring layouts
+* generic dashboards
+* flat cards
+* cheap gaming aesthetics
+
+==================================================
+NAVBAR
+======
+
+Create a premium floating navbar with:
+
+* glassmorphism
+* transparent background
+* blur effects
+* smooth scroll behavior
+* animated active states
+* glowing hover effects
+
+Navbar contains:
+
+* Home
+* Wiki
+* Rules
+* Ranks
+* Leaderboard
+* News
+* Events
+* Support
+* Dashboard
+* Login
+
+On scroll:
+
+* navbar becomes smaller
+* blur increases
+* background becomes slightly darker
+
+Mobile:
+
+* animated fullscreen mobile menu
+* smooth transitions
+* premium mobile UX
+
+==================================================
+HERO SECTION
+============
+
+The hero section is the MOST IMPORTANT part of the website.
+
+It must be:
+
+* fullscreen
+* cinematic
+* futuristic
+* immersive
+* visually impressive
+
+Layout:
+
+* fullscreen cinematic background
+* atmospheric overlays
+* moving gradients
+* animated particles
+* blur layers
+* floating UI elements
+* mouse parallax
+* cinematic fade-in animations
+
+Center Content:
+
+* giant “Cloury Network” title
+* futuristic subtitle
+* live Minecraft server status
+* animated online player count
+* Discord CTA
+* Copy IP button
+* animated buttons
+
+Hero subtitle example:
+“Modern infrastructure. Modular systems. Endless possibilities.”
+
+Typography:
+
+* large
+* cinematic
+* premium
+* futuristic
+* smooth spacing
+* modern font system
+
+The hero section should feel like:
+
+* a futuristic cloud gaming platform
+* an AAA game website
+* a next-generation gaming launcher
+
+Add:
+
+* animated glow behind title
+* moving light effects
+* cinematic entrance animations
+* smooth layered backgrounds
+* floating elements
+* premium hover animations
+
+The first impression is EXTREMELY IMPORTANT.
+
+==================================================
+HOME PAGE
+=========
+
+Sections:
+
+* Hero
+* Live Server Status
+* Network Features
+* Core Systems
+* Team Preview
+* Screenshot Carousel
+* News Preview
+* Events Preview
+* FAQ
+* Support CTA
+* Footer
+
+Include:
+
+* smooth section transitions
+* cinematic scroll animations
+* animated cards
+* glow hover effects
+* floating visuals
+
+==================================================
+LIVE SERVER DATA
+================
+
+Use Minecraft server API integration.
+
+Show:
+
+* online/offline status
+* animated player count
+* server version
+* ping
+* live server data
+
+Add:
+
+* animated indicators
+* glowing online status
+* smooth counters
+
+==================================================
+MINECRAFT INTEGRATION
+=====================
+
+Users can:
+
+* connect Minecraft account
+* enter Minecraft username
+* fetch UUID automatically
+* fetch skin via API
+* display rounded skin heads
+* display animated full skin previews
+
+==================================================
+AUTH SYSTEM
+===========
+
+Use Supabase Auth.
+
+Authentication:
+
+* Email + Password
+* Session system
+* Protected routes
+* Role system
+
+Roles:
+
+* Player
+* JrSup
+* Sup
+* SrSup
+* JrMod
+* Mod
+* SrMod
+* JrDev
+* Dev
+* SrDev
+* JrContent
+* Content
+* SrContent
+* JrBuilder
+* Builder
+* SrBuilder
+* Admin
+* Owner
+
+Only team roles can access dashboards.
+
+Players only access:
+
+* profile
+* settings
+* applications
+* tickets
+
+==================================================
+DATABASE STRUCTURE
+==================
+
+Use Supabase tables:
+
+users:
+
+* id
+* email
+* username
+* minecraft_username
+* uuid
+* role
+* created_at
+
+profiles:
+
+* user_id
+* bio
+* playtime
+* kills
+* deaths
+* coins
+* settings
+
+applications:
+
+* id
+* user_id
+* data
+* status
+
+tickets:
+
+* id
+* user_id
+* type
+* title
+* content
+* status
+* created_at
+
+achievements:
+
+* id
+* name
+* description
+* icon
+
+user_achievements:
+
+* user_id
+* achievement_id
+
+news:
+
+* id
+* title
+* content
+* created_at
+
+events:
+
+* id
+* title
+* description
+* date
+
+==================================================
+PROFILE SYSTEM
+==============
+
+Route:
+/profile/[username]
+
+Features:
+
+* animated profile header
+* Minecraft skin preview
+* glowing rank badge
+* coins
+* playtime
+* kills
+* deaths
+* achievements
+* hover tooltips
+* settings
+* sound toggle
+* language switch
+* premium profile cards
+* animated transitions
+
+The profile page should feel like a real gaming platform account system.
+
+==================================================
+WIKI PAGE
+=========
+
+Features:
+
+* sidebar navigation
+* markdown rendering
+* scrollspy
+* search bar
+* smooth navigation
+* animated content transitions
+
+==================================================
+RULES PAGE
+==========
+
+Use:
+
+* categorized rules
+* modern cards
+* icons
+* expandable sections
+* premium layouts
+
+==================================================
+RANKS PAGE
+==========
+
+Show:
+
+* rank hierarchy
+* responsibilities
+* progression
+* permissions
+* team structure
+
+Highlight:
+
+* NO Pay-to-Win
+
+Use:
+
+* accordions
+* animated cards
+* glow effects
+* structured layouts
+
+==================================================
+NEWS PAGE
+=========
+
+Features:
+
+* blog cards
+* detail pages
+* smooth animations
+* premium article layouts
+
+==================================================
+EVENTS PAGE
+===========
+
+Features:
+
+* event cards
+* countdown timers
+* animated transitions
+* premium layouts
+
+==================================================
+APPLICATION SYSTEM
+==================
+
+LOGIN REQUIRED
+
+Features:
+
+* multi-step forms
+* validation
+* dynamic role-based fields
+* database integration
+* smooth animations
+* loading states
+
+==================================================
+SUPPORT SYSTEM
+==============
+
+IMPORTANT
+
+Create a full ticket system.
+
+Users can:
+
+* create tickets
+* track status
+* view ticket history
+
+Team dashboard:
+
+* respond to tickets
+* change status
+* manage tickets
+
+Ticket types:
+
+* Support
+* Bug
+* Report
+
+==================================================
+LEADERBOARD
+===========
+
+Features:
+
+* animated leaderboard
+* sortable tables
+* highlighted top 3
+* premium stat cards
+* smooth animations
+
+==================================================
+TEAM DASHBOARD
+==============
+
+Protected futuristic dashboard with:
+
+* sidebar navigation
+* analytics cards
+* moderation tools
+* applications management
+* tickets management
+* events management
+* news management
+* team management
+
+Dashboard style:
+
+* futuristic admin panel
+* glassmorphism
+* animated data cards
+* responsive layouts
+* cinematic transitions
+
+==================================================
+SOUND SYSTEM
+============
+
+Add:
+
+* hover sounds
+* click sounds
+* UI feedback sounds
+
+Users can:
+
+* enable/disable sounds
+* save preferences in localStorage
+
+==================================================
+EXTRA FEATURES
+==============
+
+Include:
+
+* Copy IP button
+* Toast notifications
+* Loading skeletons
+* Empty states
+* Error states
+* Discord integration placeholder
+* Floating background elements
+* Premium hover states
+* Ambient glow system
+* Responsive animations
+
+==================================================
+CONTENT LANGUAGE
+================
+
+Use high-quality professional German content.
+
+The texts should feel:
+
+* immersive
+* modern
+* technical
+* professional
+* premium
+
+Avoid cringe gaming language.
+
+==================================================
+FINAL GOAL
+==========
+
+Create a visually stunning, cinematic, smooth, immersive, futuristic and functional Minecraft network platform.
+
+The final result should feel like:
+
+* a premium gaming ecosystem
+* a next-generation Minecraft platform
+* a real modern cloud gaming network
+* an expensive high-end gaming brand
+
+It should NOT feel like:
+
+* a generic Minecraft template
+* a cheap gaming website
+* a basic Tailwind dashboard
+
+The website should feel alive, cinematic and premium.

@@ -3,13 +3,23 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: Cloury Network API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: server
+    description: Minecraft server status
+  - name: news
+    description: News articles
+  - name: events
+    description: Network events
+  - name: leaderboard
+    description: Player leaderboard
+  - name: players
+    description: Player profiles
 paths:
   /healthz:
     get:
@@ -24,6 +34,178 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /server/status:
+    get:
+      operationId: getServerStatus
+      tags: [server]
+      summary: Get live Minecraft server status
+      description: Returns online/offline status, player count, version, ping
+      responses:
+        "200":
+          description: Server status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ServerStatus"
+
+  /news:
+    get:
+      operationId: listNews
+      tags: [news]
+      summary: List news articles
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      responses:
+        "200":
+          description: List of news articles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NewsArticle"
+    post:
+      operationId: createNews
+      tags: [news]
+      summary: Create news article
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewsInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsArticle"
+
+  /news/{id}:
+    get:
+      operationId: getNews
+      tags: [news]
+      summary: Get news article by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: News article
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NewsArticle"
+        "404":
+          description: Not found
+
+  /events:
+    get:
+      operationId: listEvents
+      tags: [events]
+      summary: List upcoming events
+      responses:
+        "200":
+          description: List of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/NetworkEvent"
+    post:
+      operationId: createEvent
+      tags: [events]
+      summary: Create event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkEvent"
+
+  /leaderboard:
+    get:
+      operationId: getLeaderboard
+      tags: [leaderboard]
+      summary: Get player leaderboard
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+            enum: [kills, coins, playtime]
+            default: kills
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Leaderboard entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LeaderboardEntry"
+
+  /players/{username}:
+    get:
+      operationId: getPlayer
+      tags: [players]
+      summary: Get player profile by Minecraft username
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Player profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlayerProfile"
+        "404":
+          description: Player not found
+
+  /stats/summary:
+    get:
+      operationId: getNetworkStats
+      tags: [server]
+      summary: Get network-wide statistics summary
+      responses:
+        "200":
+          description: Network stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkStats"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +216,222 @@ components:
       required:
         - status
 
+    ServerStatus:
+      type: object
+      properties:
+        online:
+          type: boolean
+        playerCount:
+          type: integer
+        maxPlayers:
+          type: integer
+        version:
+          type: string
+        ping:
+          type: integer
+        motd:
+          type: string
+      required:
+        - online
+        - playerCount
+        - maxPlayers
+        - version
+        - ping
+        - motd
+
+    NewsArticle:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+        excerpt:
+          type: string
+        category:
+          type: string
+        author:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        imageUrl:
+          type: ["string", "null"]
+      required:
+        - id
+        - title
+        - content
+        - excerpt
+        - category
+        - author
+        - createdAt
+
+    NewsInput:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+        content:
+          type: string
+          minLength: 1
+        excerpt:
+          type: string
+        category:
+          type: string
+        author:
+          type: string
+        imageUrl:
+          type: string
+      required:
+        - title
+        - content
+        - excerpt
+        - category
+        - author
+
+    NetworkEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        date:
+          type: string
+          format: date-time
+        type:
+          type: string
+        prize:
+          type: ["string", "null"]
+        active:
+          type: boolean
+      required:
+        - id
+        - title
+        - description
+        - date
+        - type
+        - active
+
+    EventInput:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+        description:
+          type: string
+        date:
+          type: string
+          format: date-time
+        type:
+          type: string
+        prize:
+          type: string
+      required:
+        - title
+        - description
+        - date
+        - type
+
+    LeaderboardEntry:
+      type: object
+      properties:
+        rank:
+          type: integer
+        username:
+          type: string
+        uuid:
+          type: string
+        value:
+          type: integer
+        category:
+          type: string
+      required:
+        - rank
+        - username
+        - uuid
+        - value
+        - category
+
+    PlayerProfile:
+      type: object
+      properties:
+        username:
+          type: string
+        uuid:
+          type: string
+        role:
+          type: string
+        bio:
+          type: ["string", "null"]
+        playtime:
+          type: integer
+        kills:
+          type: integer
+        deaths:
+          type: integer
+        coins:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        achievements:
+          type: array
+          items:
+            $ref: "#/components/schemas/Achievement"
+      required:
+        - username
+        - uuid
+        - role
+        - playtime
+        - kills
+        - deaths
+        - coins
+        - createdAt
+        - achievements
+
+    Achievement:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        icon:
+          type: string
+      required:
+        - id
+        - name
+        - description
+        - icon
+
+    NetworkStats:
+      type: object
+      properties:
+        totalPlayers:
+          type: integer
+        onlineNow:
+          type: integer
+        totalKills:
+          type: integer
+        totalPlaytime:
+          type: integer
+        newsCount:
+          type: integer
+        eventsCount:
+          type: integer
+      required:
+        - totalPlayers
+        - onlineNow
+        - totalKills
+        - totalPlaytime
+        - newsCount
+        - eventsCount

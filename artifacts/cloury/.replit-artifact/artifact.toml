@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Cloury Network"
+version = "1.0.0"
+id = "artifacts/cloury"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25583
+
+[services.development]
+run = "pnpm --filter @workspace/cloury run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cloury", "run", "build" ]
+publicDir = "artifacts/cloury/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25583"
+BASE_PATH = "/"
