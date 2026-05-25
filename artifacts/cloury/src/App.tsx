@@ -17,6 +17,15 @@ import Support from "@/pages/Support";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 
+// Dashboard
+import Dashboard from "@/pages/Dashboard";
+import DashboardTickets from "@/pages/DashboardTickets";
+import DashboardNews from "@/pages/DashboardNews";
+import DashboardEvents from "@/pages/DashboardEvents";
+import DashboardUsers from "@/pages/DashboardUsers";
+
+import { AuthProvider } from "@/context/AuthContext";
+
 const queryClient = new QueryClient();
 
 function Router() {
@@ -34,6 +43,14 @@ function Router() {
       <Route path="/support" component={Support} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      
+      {/* Dashboard Routes */}
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/dashboard/tickets" component={DashboardTickets} />
+      <Route path="/dashboard/news" component={DashboardNews} />
+      <Route path="/dashboard/events" component={DashboardEvents} />
+      <Route path="/dashboard/users" component={DashboardUsers} />
+      
       <Route component={NotFound} />
     </Switch>
   );
@@ -42,12 +59,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
-          <Router />
-        </WouterRouter>
-        <Toaster />
-      </TooltipProvider>
+      <AuthProvider>
+        <TooltipProvider>
+          <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+            <Router />
+          </WouterRouter>
+          <Toaster />
+        </TooltipProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

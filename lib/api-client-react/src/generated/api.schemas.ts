@@ -9,6 +9,10 @@ export interface HealthStatus {
   status: string;
 }
 
+export interface OkResponse {
+  ok: boolean;
+}
+
 export interface ServerStatus {
   online: boolean;
   playerCount: number;
@@ -16,6 +20,15 @@ export interface ServerStatus {
   version: string;
   ping: number;
   motd: string;
+}
+
+export interface NetworkStats {
+  totalPlayers: number;
+  onlineNow: number;
+  totalKills: number;
+  totalPlaytime: number;
+  newsCount: number;
+  eventsCount: number;
 }
 
 export interface NewsArticle {
@@ -78,7 +91,8 @@ export interface Achievement {
 
 export interface PlayerProfile {
   username: string;
-  uuid: string;
+  /** @nullable */
+  uuid?: string | null;
   role: string;
   /** @nullable */
   bio?: string | null;
@@ -90,13 +104,119 @@ export interface PlayerProfile {
   achievements: Achievement[];
 }
 
-export interface NetworkStats {
+export interface AuthUser {
+  id: number;
+  email: string;
+  username: string;
+  role: string;
+  /** @nullable */
+  bio?: string | null;
+  /** @nullable */
+  minecraftUsername?: string | null;
+  createdAt?: string;
+}
+
+export interface RegisterInput {
+  email: string;
+  /** @minLength 3 */
+  username: string;
+  /** @minLength 8 */
+  password: string;
+}
+
+export interface LoginInput {
+  login: string;
+  password: string;
+}
+
+export interface UpdateProfileInput {
+  bio?: string;
+  minecraftUsername?: string;
+}
+
+export interface ChangePasswordInput {
+  currentPassword: string;
+  /** @minLength 8 */
+  newPassword: string;
+}
+
+export interface Ticket {
+  id: number;
+  userId: number;
+  type: string;
+  title: string;
+  content: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface TicketWithUser {
+  id: number;
+  userId: number;
+  type: string;
+  title: string;
+  content: string;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  /** @nullable */
+  username?: string | null;
+}
+
+export type CreateTicketInputType = typeof CreateTicketInputType[keyof typeof CreateTicketInputType];
+
+
+export const CreateTicketInputType = {
+  Support: 'Support',
+  Bug: 'Bug',
+  Report: 'Report',
+} as const;
+
+export interface CreateTicketInput {
+  type: CreateTicketInputType;
+  /** @minLength 1 */
+  title: string;
+  /** @minLength 1 */
+  content: string;
+}
+
+export type UpdateTicketStatusInputStatus = typeof UpdateTicketStatusInputStatus[keyof typeof UpdateTicketStatusInputStatus];
+
+
+export const UpdateTicketStatusInputStatus = {
+  open: 'open',
+  in_progress: 'in_progress',
+  resolved: 'resolved',
+  closed: 'closed',
+} as const;
+
+export interface UpdateTicketStatusInput {
+  status: UpdateTicketStatusInputStatus;
+}
+
+export interface DashboardStats {
+  totalUsers: number;
+  totalTickets: number;
+  openTickets: number;
+  totalNews: number;
+  totalEvents: number;
   totalPlayers: number;
   onlineNow: number;
-  totalKills: number;
-  totalPlaytime: number;
-  newsCount: number;
-  eventsCount: number;
+}
+
+export interface DashboardUser {
+  id: number;
+  email: string;
+  username: string;
+  role: string;
+  /** @nullable */
+  minecraftUsername?: string | null;
+  createdAt: string;
+}
+
+export interface UpdateRoleInput {
+  role: string;
 }
 
 export type ListNewsParams = {

@@ -9,7 +9,8 @@ import type { Achievement } from './achievement';
 
 export interface PlayerProfile {
   username: string;
-  uuid: string;
+  /** @nullable */
+  uuid?: string | null;
   role: string;
   /** @nullable */
   bio?: string | null;

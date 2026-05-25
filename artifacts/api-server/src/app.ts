@@ -1,8 +1,12 @@
 import express, { type Express } from "express";
 import cors from "cors";
+import session from "express-session";
+import connectPgSimple from "connect-pg-simple";
 import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+
+const PgSession = connectPgSimple(session);
 
 const app: Express = express();
 
@@ -25,9 +29,30 @@ app.use(
     },
   }),
 );
-app.use(cors());
+
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    store: new PgSession({
+      conString: process.env.DATABASE_URL,
+      tableName: "user_sessions",
+      createTableIfMissing: true,
+    }),
+    name: "cloury.sid",
+    secret: process.env.SESSION_SECRET ?? "cloury-dev-secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: true,
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    },
+  }),
+);
 
 app.use("/api", router);
 

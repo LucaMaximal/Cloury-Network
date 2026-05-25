@@ -9,7 +9,6 @@ import * as zod from 'zod';
 
 
 /**
- * Returns server health status
  * @summary Health check
  */
 export const HealthCheckResponse = zod.object({
@@ -17,10 +16,6 @@ export const HealthCheckResponse = zod.object({
 })
 
 
-/**
- * Returns online/offline status, player count, version, ping
- * @summary Get live Minecraft server status
- */
 export const GetServerStatusResponse = zod.object({
   "online": zod.boolean(),
   "playerCount": zod.number(),
@@ -31,9 +26,16 @@ export const GetServerStatusResponse = zod.object({
 })
 
 
-/**
- * @summary List news articles
- */
+export const GetNetworkStatsResponse = zod.object({
+  "totalPlayers": zod.number(),
+  "onlineNow": zod.number(),
+  "totalKills": zod.number(),
+  "totalPlaytime": zod.number(),
+  "newsCount": zod.number(),
+  "eventsCount": zod.number()
+})
+
+
 export const listNewsQueryLimitDefault = 10;
 export const listNewsQueryOffsetDefault = 0;
 
@@ -55,9 +57,6 @@ export const ListNewsResponseItem = zod.object({
 export const ListNewsResponse = zod.array(ListNewsResponseItem)
 
 
-/**
- * @summary Create news article
- */
 
 
 
@@ -72,9 +71,6 @@ export const CreateNewsBody = zod.object({
 })
 
 
-/**
- * @summary Get news article by ID
- */
 export const GetNewsParams = zod.object({
   "id": zod.coerce.number()
 })
@@ -91,9 +87,6 @@ export const GetNewsResponse = zod.object({
 })
 
 
-/**
- * @summary List upcoming events
- */
 export const ListEventsResponseItem = zod.object({
   "id": zod.number(),
   "title": zod.string(),
@@ -106,9 +99,6 @@ export const ListEventsResponseItem = zod.object({
 export const ListEventsResponse = zod.array(ListEventsResponseItem)
 
 
-/**
- * @summary Create event
- */
 
 
 
@@ -121,9 +111,6 @@ export const CreateEventBody = zod.object({
 })
 
 
-/**
- * @summary Get player leaderboard
- */
 export const getLeaderboardQueryCategoryDefault = `kills`;
 export const getLeaderboardQueryLimitDefault = 20;
 
@@ -142,16 +129,13 @@ export const GetLeaderboardResponseItem = zod.object({
 export const GetLeaderboardResponse = zod.array(GetLeaderboardResponseItem)
 
 
-/**
- * @summary Get player profile by Minecraft username
- */
 export const GetPlayerParams = zod.object({
   "username": zod.coerce.string()
 })
 
 export const GetPlayerResponse = zod.object({
   "username": zod.string(),
-  "uuid": zod.string(),
+  "uuid": zod.string().nullish(),
   "role": zod.string(),
   "bio": zod.string().nullish(),
   "playtime": zod.number(),
@@ -168,16 +152,229 @@ export const GetPlayerResponse = zod.object({
 })
 
 
-/**
- * @summary Get network-wide statistics summary
- */
-export const GetNetworkStatsResponse = zod.object({
+export const registerBodyUsernameMin = 3;
+
+export const registerBodyPasswordMin = 8;
+
+
+
+export const RegisterBody = zod.object({
+  "email": zod.string().email(),
+  "username": zod.string().min(registerBodyUsernameMin),
+  "password": zod.string().min(registerBodyPasswordMin)
+})
+
+
+export const LoginBody = zod.object({
+  "login": zod.string(),
+  "password": zod.string()
+})
+
+export const LoginResponse = zod.object({
+  "id": zod.number(),
+  "email": zod.string(),
+  "username": zod.string(),
+  "role": zod.string(),
+  "bio": zod.string().nullish(),
+  "minecraftUsername": zod.string().nullish(),
+  "createdAt": zod.coerce.date().optional()
+})
+
+
+export const LogoutResponse = zod.object({
+  "ok": zod.boolean()
+})
+
+
+export const GetMeResponse = zod.object({
+  "id": zod.number(),
+  "email": zod.string(),
+  "username": zod.string(),
+  "role": zod.string(),
+  "bio": zod.string().nullish(),
+  "minecraftUsername": zod.string().nullish(),
+  "createdAt": zod.coerce.date().optional()
+})
+
+
+export const GetMyProfileResponse = zod.object({
+  "username": zod.string(),
+  "uuid": zod.string().nullish(),
+  "role": zod.string(),
+  "bio": zod.string().nullish(),
+  "playtime": zod.number(),
+  "kills": zod.number(),
+  "deaths": zod.number(),
+  "coins": zod.number(),
+  "createdAt": zod.coerce.date(),
+  "achievements": zod.array(zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "description": zod.string(),
+  "icon": zod.string()
+}))
+})
+
+
+export const UpdateProfileBody = zod.object({
+  "bio": zod.string().optional(),
+  "minecraftUsername": zod.string().optional()
+})
+
+export const UpdateProfileResponse = zod.object({
+  "id": zod.number(),
+  "email": zod.string(),
+  "username": zod.string(),
+  "role": zod.string(),
+  "bio": zod.string().nullish(),
+  "minecraftUsername": zod.string().nullish(),
+  "createdAt": zod.coerce.date().optional()
+})
+
+
+export const changePasswordBodyNewPasswordMin = 8;
+
+
+
+export const ChangePasswordBody = zod.object({
+  "currentPassword": zod.string(),
+  "newPassword": zod.string().min(changePasswordBodyNewPasswordMin)
+})
+
+export const ChangePasswordResponse = zod.object({
+  "ok": zod.boolean()
+})
+
+
+export const GetMyTicketsResponseItem = zod.object({
+  "id": zod.number(),
+  "userId": zod.number(),
+  "type": zod.string(),
+  "title": zod.string(),
+  "content": zod.string(),
+  "status": zod.string(),
+  "createdAt": zod.coerce.date(),
+  "updatedAt": zod.coerce.date()
+})
+export const GetMyTicketsResponse = zod.array(GetMyTicketsResponseItem)
+
+
+export const ListAllTicketsResponseItem = zod.object({
+  "id": zod.number(),
+  "userId": zod.number(),
+  "type": zod.string(),
+  "title": zod.string(),
+  "content": zod.string(),
+  "status": zod.string(),
+  "createdAt": zod.coerce.date(),
+  "updatedAt": zod.coerce.date(),
+  "username": zod.string().nullish()
+})
+export const ListAllTicketsResponse = zod.array(ListAllTicketsResponseItem)
+
+
+
+
+
+
+export const CreateTicketBody = zod.object({
+  "type": zod.enum(['Support', 'Bug', 'Report']),
+  "title": zod.string().min(1),
+  "content": zod.string().min(1)
+})
+
+
+export const GetTicketParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const GetTicketResponse = zod.object({
+  "id": zod.number(),
+  "userId": zod.number(),
+  "type": zod.string(),
+  "title": zod.string(),
+  "content": zod.string(),
+  "status": zod.string(),
+  "createdAt": zod.coerce.date(),
+  "updatedAt": zod.coerce.date()
+})
+
+
+export const UpdateTicketStatusParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const UpdateTicketStatusBody = zod.object({
+  "status": zod.enum(['open', 'in_progress', 'resolved', 'closed'])
+})
+
+export const UpdateTicketStatusResponse = zod.object({
+  "id": zod.number(),
+  "userId": zod.number(),
+  "type": zod.string(),
+  "title": zod.string(),
+  "content": zod.string(),
+  "status": zod.string(),
+  "createdAt": zod.coerce.date(),
+  "updatedAt": zod.coerce.date()
+})
+
+
+export const GetDashboardStatsResponse = zod.object({
+  "totalUsers": zod.number(),
+  "totalTickets": zod.number(),
+  "openTickets": zod.number(),
+  "totalNews": zod.number(),
+  "totalEvents": zod.number(),
   "totalPlayers": zod.number(),
-  "onlineNow": zod.number(),
-  "totalKills": zod.number(),
-  "totalPlaytime": zod.number(),
-  "newsCount": zod.number(),
-  "eventsCount": zod.number()
+  "onlineNow": zod.number()
+})
+
+
+export const ListDashboardUsersResponseItem = zod.object({
+  "id": zod.number(),
+  "email": zod.string(),
+  "username": zod.string(),
+  "role": zod.string(),
+  "minecraftUsername": zod.string().nullish(),
+  "createdAt": zod.coerce.date()
+})
+export const ListDashboardUsersResponse = zod.array(ListDashboardUsersResponseItem)
+
+
+export const UpdateUserRoleParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const UpdateUserRoleBody = zod.object({
+  "role": zod.string()
+})
+
+export const UpdateUserRoleResponse = zod.object({
+  "id": zod.number(),
+  "email": zod.string(),
+  "username": zod.string(),
+  "role": zod.string(),
+  "minecraftUsername": zod.string().nullish(),
+  "createdAt": zod.coerce.date()
+})
+
+
+export const DeleteDashboardNewsParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const DeleteDashboardNewsResponse = zod.object({
+  "ok": zod.boolean()
+})
+
+
+export const DeleteDashboardEventParams = zod.object({
+  "id": zod.coerce.number()
+})
+
+export const DeleteDashboardEventResponse = zod.object({
+  "ok": zod.boolean()
 })
 
 
