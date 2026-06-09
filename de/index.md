@@ -23,12 +23,12 @@ Willkommen bei der offiziellen Cloury Dokumentation.
 ### Bugs melden
 
 GitHub Labels:
-https://github.com/LucaMaximal/Cloury-Network/labels
+[Bug Report](https://github.com/LucaMaximal/Cloury-Network/labels)
 
 ### Ideen & Diskussionen
 
 GitHub Discussions:
-https://github.com/LucaMaximal/Cloury-Network/discussions
+[Ideen & Diskussionen](https://github.com/LucaMaximal/Cloury-Network/discussions)
 
 ---
 
