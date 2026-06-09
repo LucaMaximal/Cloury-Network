@@ -44,6 +44,7 @@ Die technischen und spielbezogenen Systeme von Cloury.
 - [Achievements](systems/achievements.md)
 - [Player Profiles](systems/profiles.md)
 - [Cloud System](systems/cloud.md)
+- [Plugins](systems/plugins.md)
 
 ---
 
