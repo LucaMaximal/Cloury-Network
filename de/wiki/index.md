@@ -45,6 +45,7 @@ Die technischen und spielbezogenen Systeme von Cloury.
 - [Player Profiles](systems/profiles.md)
 - [Cloud System](systems/cloud.md)
 - [Plugins](systems/plugins.md)
+- [Localization](systems/localization.md)
 
 ---
 
