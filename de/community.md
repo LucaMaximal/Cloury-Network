@@ -4,7 +4,7 @@
 
 Wenn du einen Fehler gefunden hast:
 
-https://github.com/LucaMaximal/Cloury-Network/labels
+[Bugs Report](https://github.com/LucaMaximal/Cloury-Network/labels)
 
 Bitte beschreibe:
 
@@ -17,12 +17,14 @@ Bitte beschreibe:
 
 ## Ideen einreichen
 
+[Ideen einreichen](https://github.com/LucaMaximal/Cloury-Network/discussions)
+
 Feature-Wünsche sind jederzeit willkommen.
 
 ---
 
 ## Diskussionen
 
-https://github.com/LucaMaximal/Cloury-Network/discussions
+[Diskussionen](https://github.com/LucaMaximal/Cloury-Network/discussions)
 
 Hier können Fragen, Ideen und Vorschläge diskutiert werden.
