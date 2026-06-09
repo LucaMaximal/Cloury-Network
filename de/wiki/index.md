@@ -46,6 +46,9 @@ Die technischen und spielbezogenen Systeme von Cloury.
 - [Cloud System](systems/cloud.md)
 - [Plugins](systems/plugins.md)
 - [Localization](systems/localization.md)
+- [Security](systems/security)
+- [Cosmetics](systems/cosmetics)
+- [Punishments](systems/punishments)
 
 ---
 
