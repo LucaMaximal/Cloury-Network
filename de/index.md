@@ -2,6 +2,16 @@
 
 Willkommen bei der offiziellen Cloury Dokumentation.
 
+---
+
+> ⚠️ Hinweis
+>
+> Cloury befindet sich aktiv in Entwicklung.
+>
+> Die hier beschriebenen Funktionen stellen die aktuelle Planung dar und können sich jederzeit ändern oder erweitert werden.
+
+---
+
 ## Navigation
 
 ### Informationen
