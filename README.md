@@ -17,4 +17,3 @@ This GitHub repository is exclusively used for discussions, reporting bugs, and 
 
 *Auf Deutsch:* Dieses GitHub-Repository wird ausschließlich für Diskussionen, das Melden von Fehlern (Bugs) und das Einsenden von Ideen genutzt. 
 
-```
